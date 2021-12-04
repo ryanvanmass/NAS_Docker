@@ -1,0 +1,12 @@
+version: "3.3"
+services:
+  syncthing:
+    build: .
+    image: Syncthing:rc1
+    container_name: Syncthing
+    ports: 
+      - "8384:8384"
+    volumes:
+      - "/mnt:/Data"
+      - "/NAS_Docker/Dockerfiles/Syncthing/Config:/root/.config/syncthing"
+      
