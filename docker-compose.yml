@@ -1,12 +1,20 @@
 version: "3.3"
 services:
   syncthing:
-    build: .
-    image: Syncthing:rc1
+    build: /NAS_Docker/Dockerfiles/Syncthing/dockerfile
+    image: Syncthing:local
     container_name: Syncthing
     ports: 
       - "8384:8384"
     volumes:
       - "/mnt:/Data"
       - "/NAS_Docker/Dockerfiles/Syncthing/Config:/root/.config/syncthing"
-      
+
+  samba:
+    build: /NAS_Docker/Dockerfiles/Samba/dockerfile
+    image: samba:local
+    container_name: Samba
+    volumes:
+      - "/mnt:/Data"
+      - "/NAS_Docker/Dockerfiles/Samba/Config:/etc/samba"
+    user: "1000:1000"

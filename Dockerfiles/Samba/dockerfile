@@ -1,0 +1,15 @@
+# Pulls base image
+FROM ubuntu:20.04
+
+# Installs Samba
+RUN apt update
+RUN apt install samba -y
+
+# Sets Timezone
+ENV TZ=America/Toronto
+
+#Makes Data Directory
+RUN mkdir /Data
+
+# Keeps Container from Dieing
+ENTRYPOINT ["tail", "-f", "/dev/null"]
