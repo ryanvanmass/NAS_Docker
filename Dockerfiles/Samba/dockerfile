@@ -11,5 +11,10 @@ ENV TZ=America/Toronto
 #Makes Data Directory
 RUN mkdir /Data
 
+# Create user for Samba
+RUN adduser ryan 
+RUN usermod -u 1000 ryan
+RUN groupmod -g 1000 ryan
+
 # Keeps Container from Dieing
 ENTRYPOINT ["tail", "-f", "/dev/null"]

@@ -17,4 +17,8 @@ services:
     volumes:
       - "/mnt:/Data"
       - "/NAS_Docker/Dockerfiles/Samba/Config:/etc/samba"
-    user: "1000:1000"
+    port:
+      - 137:137
+      - 138:138
+      - 139:139
+      - 445:445
